@@ -1,0 +1,49 @@
+.loginFormContainer {
+  position: absolute;
+  margin-left: 50%;
+  width: 500px;
+  height: 800px;
+  border-radius: 10px;
+  margin-top: 3.5%;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-family: 'ACCchildrenheartOTF-Regular';
+}
+
+.loginInput {
+  display: grid;
+
+  & > label {
+    width: 300px;
+    height: 30px;
+    border: 1px solid #939fa5;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    font-size: 20px;
+
+    .IconSize {
+      width: 20px;
+      height: 20px;
+      color: gray;
+    }
+
+    & > input {
+      width: 200px;
+      height: 25px;
+      border: none;
+      background: none;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        font-family: 'ACCchildrenheartOTF-Regular';
+        color: #000000;
+        font-size: 20px;
+      }
+    }
+  }
+
+
+}
+
