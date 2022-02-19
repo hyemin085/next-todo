@@ -7,8 +7,9 @@ import { MailIcon, KeyIcon } from "@heroicons/react/outline";
 
 import { motion } from "framer-motion";
 import { buttonVariants } from "../../framer/button-style";
-import { useDispatch } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { logIn, signUpDB } from "../../../redux/user/user";
+import {useRouter} from "next/router";
 
 const LoginForm: NextPage = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,10 @@ const LoginForm: NextPage = () => {
   const [enteredPassword, setEnteredPassword] = useState("");
   const [checkPassword, setCheckPassword] = useState("");
   const [signUp, setSignUp] = useState<boolean>(false);
+  const router = useRouter();
+
+ const user = useSelector(state => state);
+ console.log(user);
 
   const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
@@ -25,9 +30,10 @@ const LoginForm: NextPage = () => {
           userId: enteredId,
           password: enteredPassword,
         })
-      );
+      )
       setEnteredId("");
       setEnteredPassword("");
+
     } else if (enteredId !== "" && enteredPassword !== "" && signUp) {
       dispatch(
         signUpDB({
@@ -35,7 +41,7 @@ const LoginForm: NextPage = () => {
           password: enteredPassword,
         })
       )
-    }else {
+    } else {
       alert("아이디나 비밀번호를 정확하게 입력해주세요");
     }
     setEnteredId("");

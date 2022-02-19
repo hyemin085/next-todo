@@ -1,39 +1,26 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-import { combineReducers } from 'redux';
-import { createWrapper } from 'next-redux-wrapper';
-import logger from 'redux-logger';
-import userSlice from "./user/userSlice"; // 리덕스 로깅 라이브러리
+import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
+import userSlice from "./user/userSlice";
 
 
-// 개발모드 체크
-const isDev = process.env.NODE_ENV === 'development';
+export function makeStore() {
+    return configureStore({
+        reducer: {
+            user: userSlice.reducer,
+        },
+    })
+}
 
-const createStore = () => {
-    const middleware = getDefaultMiddleware();
-    if (isDev) {
-        middleware.push(logger); // 개발모드라면 미들웨어에 logger 추가
-    }
-    const store = configureStore({
-        reducer: rootReducer,
-        middleware: (getDefaultMiddleware) =>
-            getDefaultMiddleware({
-                serializableCheck: false,
-            }),
-        devTools: isDev, // 개발모드라면 리덕스 데브툴즈 사용
-    });
-    return store;
-};
+const store = makeStore()
 
-const wrapper = createWrapper(createStore, {
-    debug: isDev,
-});
+export type AppState = ReturnType<typeof store.getState>
 
-export default wrapper;
+export type AppDispatch = typeof store.dispatch
 
-export const rootReducer = combineReducers({
+export type AppThunk<ReturnType = void> = ThunkAction<
+    ReturnType,
+    AppState,
+    unknown,
+    Action<string>
+    >
 
-    user: userSlice.reducer,
-});
-
-export type RootState = ReturnType<typeof rootReducer>;
-
+export default store

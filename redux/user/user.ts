@@ -21,6 +21,8 @@ export const logIn = createAsyncThunk(
             }).then(res => {
                 const accessToken = res.data.token;
                 localStorage.setItem("token", accessToken);
+                console.log(res);
+                return res.data;
             })
         } catch (error) {
             console.log(error);

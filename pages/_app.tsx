@@ -1,24 +1,14 @@
 import '../styles/globals.css'
 import React from 'react';
-import Head from 'next/head';
-import wrapper from "../redux/store";
+import { Provider } from 'react-redux'
+import type { AppProps } from 'next/app'
 
-const App = ({ Component, pageProps }: any) => {
-  console.log({ ...pageProps });
-  return (
-      <>
-        <Head>
-          <meta charSet="utf-8" />
-          <meta
-              name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-          />
-          <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-          <title>React LogIn</title>
-        </Head>
-        <Component {...pageProps} />
-      </>
-  );
-};
+import store from "../redux/store";
 
-export default wrapper.withRedux(App);
+export default function App({ Component, pageProps }: AppProps) {
+    return (
+        <Provider store={store}>
+            <Component {...pageProps} />
+        </Provider>
+    )
+}
