@@ -1,13 +1,14 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import TodoList from "../../components/todo/todo-list";
+import TodoCard from "../../components/todo/todo-card";
 import { useAppSelector } from "../../redux/hooks/hooks";
 import AddTodo from "../../components/todo/add-todo";
 import Todo from "../../components/todo";
 import useSWR, { useSWRConfig } from "swr";
-import styles from "./todo.module.scss";
+import styles from "./_todo.module.scss";
 import TodoModal from "../../components/modal/todo-modal";
+import TodoSearch from "../../components/todo/todo-search";
 
 interface Todos {
   contents?: string;
@@ -44,9 +45,8 @@ const TodoPage: NextPage = () => {
     <>
       <div className={styles.todoLayout}>
         {addModal.isTodoModal && <TodoModal items={addModal} />}
-        <div></div>
+        <TodoSearch/>
         <h1>{slug} 로그인환영환영</h1>
-        <AddTodo userId={slug} items={data && data} />
         <Todo userId={slug} items={data && data.todo} />
       </div>
     </>

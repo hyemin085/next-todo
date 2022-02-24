@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Head from "next/head";
-import styles from "./index.module.scss";
+import styles from "./_index.module.scss";
 import Image from "next/image";
 import loginBackground from "../../common/images/loginImage.jpg";
 import LoginForm from "../../components/user/login/login-form";

@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import Api from "../../common/api/Api";
-import { userTypes } from "../types/user.interface";
+import { userTypes } from "../types/redux.interface";
 
 axios.defaults.withCredentials = true;
 

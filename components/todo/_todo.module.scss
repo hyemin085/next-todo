@@ -1,0 +1,45 @@
+@import "./common/styles/_variables.scss";
+
+//index.tsx
+
+.main_todo {
+  display: grid;
+  width: 80%;
+  grid-template-columns: repeat(3, 30%);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 10px;
+
+}
+
+//todo-card.tsx
+.todo_check{
+  text-decoration: line-through;
+}
+.todo_list {
+
+  & > div {
+    width: 200px;
+    height: 250px;
+    border-radius: 5px;
+  }
+
+  .todo_yellow {
+    background: $yellow;
+  }
+
+  .todo_orange {
+    background: $orange;
+  }
+
+  .todo_purple {
+    background: $purple;
+  }
+
+  .todo_skyblue {
+    background: $skyblue;
+  }
+
+  .todo_green {
+    background: $green;
+  }
+}

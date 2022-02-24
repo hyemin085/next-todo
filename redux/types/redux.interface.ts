@@ -9,4 +9,9 @@ export interface addTodoTypes {
     commenter?: number,
     check?: boolean,
     contents?: string;
+    color?: string;
+}
+
+export interface searchTodoTypes {
+    search: string|void;
 }

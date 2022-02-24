@@ -11,6 +11,10 @@
 //header.tsx
 $colors: #f5c16e #f59570 #af8ef5 #01ccf5 #dbe58a;
 
+.add_button{
+  margin: 10px 0 0 48px;
+}
+
 .add_color {
   & > button {
     width: 20px;

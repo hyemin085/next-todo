@@ -1,13 +1,14 @@
 import { NextPage } from "next";
 import styles from "./_modal.module.scss";
-import { useAppDispatch } from "../../redux/hooks/hooks";
+import {useAppDispatch, useAppSelector} from "../../redux/hooks/hooks";
 import { modalAction } from "../../redux/todos/todosSlice";
 import AddTodo from "../todo/add-todo";
 
 const TodoModal: NextPage = (props) => {
   const dispatch = useAppDispatch();
 
-  console.log("토탈모달", props.items.colors);
+  const todoColors = useAppSelector(state=>state.todos.colors);
+
 
   const outSideHandler = () => {
     dispatch(
@@ -24,20 +25,28 @@ const TodoModal: NextPage = (props) => {
         <div className={styles.todo_modal}>
           {props.items.colors === "yellow" && (
             <div className={styles.yellow}>
-                <AddTodo/>
+                <AddTodo color={todoColors} />
             </div>
           )}
           {props.items.colors === "orange" && (
-            <div className={styles.orange}>헹구</div>
+            <div className={styles.orange}>
+                <AddTodo color={todoColors} />
+            </div>
           )}
           {props.items.colors === "purple" && (
-            <div className={styles.purple}>헹구</div>
+            <div className={styles.purple}>
+                <AddTodo color={todoColors} />
+            </div>
           )}
           {props.items.colors === "skyblue" && (
-            <div className={styles.skyblue}>헹구</div>
+            <div className={styles.skyblue}>
+                <AddTodo color={todoColors} />
+            </div>
           )}
           {props.items.colors === "green" && (
-            <div className={styles.green}>헹구</div>
+            <div className={styles.green}>
+                <AddTodo color={todoColors} />
+            </div>
           )}
         </div>
       </div>

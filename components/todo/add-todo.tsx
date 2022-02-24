@@ -8,15 +8,15 @@ import {addTodo} from "../../redux/todos/todos";
 import {AppDispatch} from "../../redux/store";
 import {useDispatch} from "react-redux";
 import {useSWRConfig} from "swr";
+import {modalAction} from "../../redux/todos/todosSlice";
 
 
 const AddTodo: React.FC = (props) => {
 
-  const userId = useAppSelector(state=> state.user);
-  console.log("유저아이디", userId)
+  const userId = useAppSelector(state=> state.user.user.userId);
+  const userNumber = useAppSelector(state=> state.user.user.commenter.id);
   const textInputRef = useRef<HTMLInputElement>(null);
   const dispatch : AppDispatch = useDispatch();
-  const userNumber = props.items? props.items.todo[0].commenter : null;
   const {mutate} = useSWRConfig();
 
   const todoSubmitHandler = (event: React.FormEvent) => {
@@ -27,8 +27,13 @@ const AddTodo: React.FC = (props) => {
       userId: userId,
       check: false,
       commenter: userNumber,
+      color: props.color,
     }))
-    mutate(`http://3.34.47.186:4000/todo/${props.userId}`)
+    dispatch(modalAction({
+      isTodoModal: false,
+      colors: "",
+    }))
+    mutate(`http://3.34.47.186:4000/todo/${userId}`)
   };
 
   return (

@@ -1,7 +1,9 @@
 import { NextPage } from "next";
 import useSWR from "swr";
-import TodoList from "./todo-list";
-import styles from "./todo.module.scss";
+import TodoCard from "./todo-card";
+import styles from "./_todo.module.scss";
+
+
 
 
 
@@ -10,9 +12,9 @@ const Todo: NextPage = (props: object | string | void ) => {
     console.log(typeof(props.items))
   return (
     <>
-      <div>
+      <div className={styles.main_todo}>
         {props.items && props.items.map((list) => (
-          <TodoList key={list.id} list={list}/>
+          <TodoCard key={list.id} list={list}/>
         ))}
       </div>
     </>
