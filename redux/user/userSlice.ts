@@ -1,34 +1,31 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import {
+  createAsyncThunk,
+  createReducer,
+  createSlice,
+  PayloadAction,
+} from "@reduxjs/toolkit";
 import { logIn } from "./user";
 import { current } from "@reduxjs/toolkit";
-import type { AppState, AppThunk } from '../store';
 
-export interface User {
-  userId: string|void;
-  password? : string;
-
+interface Users {
+  user?: any;
+  isLoggedIn?: boolean;
 }
 
-const initialState: User = {
-  userId: "",
+const initialState: Users = {
+  isLoggedIn: false,
+  user: {},
 };
 
-
-// function isActionWithStringPayload(
-//   action: AnyAction
-// ): action is PayloadAction<string> {
-//   return typeof action.payload === "number";
-// }
-
-const userSlice = createSlice({
-  name: "user",
+export const UserSlice = createSlice({
+  name: "User",
   initialState,
   reducers: {},
-  extraReducers: (builder) => {
+  extraReducers: (builder) =>
     builder.addCase(logIn.fulfilled, (state, action) => {
-      state.userId = action.payload;
-    });
-  },
+      state.user = action.payload;
+      state.isLoggedIn = true;
+    }),
 });
 
-export default userSlice;
+export default UserSlice.reducer;

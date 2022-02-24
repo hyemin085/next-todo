@@ -10,12 +10,12 @@ const Login: NextPage = () => {
     <>
       <Head>
         <title>Todos</title>
-          <meta name="description" content="What I have to do"/>
+        <meta name="description" content="What I have to do" />
       </Head>
       <div className={styles.loginContainer}>
         <div className={styles.background}>
-          <Image src={loginBackground} alt="loginBackground" />
           <LoginForm />
+          <Image src={loginBackground} alt="loginBackground" />
         </div>
       </div>
     </>
@@ -23,4 +23,3 @@ const Login: NextPage = () => {
 };
 
 export default Login;
-

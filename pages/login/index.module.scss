@@ -4,10 +4,12 @@
 
 }
 
+
+
 .background {
   display: grid;
   height: 100vh;
-  grid-template-columns: repeat(2, 45% 55%);
+  grid-template-columns: repeat(2, 55% 45%);
   overflow: hidden;
 
 }
