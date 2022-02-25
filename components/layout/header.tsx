@@ -5,11 +5,15 @@ import styles from "./_layout.module.scss";
 import { modalAction } from "../../redux/todos/todosSlice";
 import { BsPlusCircle } from "react-icons/bs";
 import { AnimatePresence, motion, useCycle } from "framer-motion";
+import Link from "next/link";
 
 const Header: NextPage = () => {
   const dispatch = useAppDispatch();
 
   const isLogin = useAppSelector((state) => state.user.isLoggedIn);
+  const userId = useAppSelector((state) => state.user.user.userId);
+
+  console.log(userId);
 
   const [addTodo, setAddTodo] = useState(false);
 
@@ -60,8 +64,14 @@ const Header: NextPage = () => {
   return (
     <>
       <div>
-        <h1>Logo</h1>
-
+        <Link
+          href={{
+            pathname: `/todo/${userId}`,
+            query: { slug: userId },
+          }}
+        >
+          <h1>Logo</h1>
+        </Link>
         {/*로그인 후 todo등록시 todolist 색지정 */}
         {isLogin && (
           <>
@@ -101,7 +111,6 @@ const Header: NextPage = () => {
         {!isLogin && (
           <>
             <div>
-              {/*<SwitchButton/>*/}
               <div>로그인</div>
               <div>로그아웃</div>
             </div>

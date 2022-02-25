@@ -1,26 +1,29 @@
 @import "./common/styles/_variables.scss";
 
 //index.tsx
-
 .main_todo {
   display: grid;
   width: 80%;
   grid-template-columns: repeat(3, 30%);
   grid-template-rows: repeat(4, 1fr);
   grid-gap: 10px;
-
 }
 
 //todo-card.tsx
 .todo_check{
   text-decoration: line-through;
+  color: gray;
+  font-weight: 300;
+
 }
 .todo_list {
-
   & > div {
     width: 200px;
     height: 250px;
     border-radius: 5px;
+    //color: #e9ebe7;
+    padding-left: 10px;
+    display: flex;
   }
 
   .todo_yellow {
@@ -41,5 +44,32 @@
 
   .todo_green {
     background: $green;
+  }
+}
+
+// todo-search.tsx
+
+.todo_search{
+  width: 550px;
+  height: 30px;
+  display: flex;
+  background: #f5f5f5;
+  border-radius: 10px;
+  line-height: 30px;
+  color: #989798;
+  & > label {
+
+  }
+  & > input {
+    border: none;
+    width: 500px;
+    height: 20px;
+    background: #f5f5f5;
+    margin-top: 5px;
+    line-height: 30px;
+    margin-left: 10px;
+    &:focus{
+      outline: none;
+    }
   }
 }

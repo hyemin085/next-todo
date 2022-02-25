@@ -1,4 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {searchTodo} from "./todos";
 
 interface TodoTypes {
     isTodoModal: boolean;
@@ -24,6 +25,13 @@ export const todosSlice = createSlice({
           console.log("페이로드",action.payload)
       }
     },
+    // extraReducers: (builder) =>
+    //     builder.addcase(searchTodo.fulfilled, (state, action) => {
+    //
+    //     }),
+
+
+
 });
 
 

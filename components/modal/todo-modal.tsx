@@ -4,7 +4,14 @@ import {useAppDispatch, useAppSelector} from "../../redux/hooks/hooks";
 import { modalAction } from "../../redux/todos/todosSlice";
 import AddTodo from "../todo/add-todo";
 
-const TodoModal: NextPage = (props) => {
+interface todoModals {
+    items: {
+        colors: string|null
+    }
+}
+
+
+const TodoModal: NextPage<todoModals> = (props) => {
   const dispatch = useAppDispatch();
 
   const todoColors = useAppSelector(state=>state.todos.colors);
