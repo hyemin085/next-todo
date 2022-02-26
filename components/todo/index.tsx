@@ -9,7 +9,7 @@ import styles from "./_todo.module.scss";
 
 const Todo: NextPage = (props: object | string | void ) => {
 
-    console.log(typeof(props.items))
+    console.log("헹구",props)
   return (
     <>
       <div className={styles.main_todo}>

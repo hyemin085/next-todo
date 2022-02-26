@@ -4,8 +4,8 @@
 .main_todo {
   display: grid;
   width: 80%;
-  grid-template-columns: repeat(3, 30%);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(4,25%);
+  grid-template-rows: repeat(3, 1fr);
   grid-gap: 10px;
 }
 
