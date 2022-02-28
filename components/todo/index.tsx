@@ -1,11 +1,11 @@
 import { NextPage } from "next";
 import useSWR from "swr";
 import styles from "./_todo.module.scss";
-import fetcher from "../../libs/fetch";
+import {fetcher} from "../../libs/fetch";
 import { useState } from "react";
 import TodoCard from "./todo-card";
 
-const Todo: NextPage = (props: object | string | void) => {
+const Todo: NextPage = (props: object | string | void | any) => {
   const [pageIndex, setPageIndex] = useState(1);
 
   const { data, error, mutate } = useSWR(

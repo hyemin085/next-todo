@@ -34,7 +34,7 @@ export const useForm =
   };
 
 export const useInterval = (callback: Function, delay: number) => {
-  const savedCallback = useRef<Function>();
+  const savedCallback = useRef<Function>(null);
   useEffect(() => {
     savedCallback.current = callback;
   }, [callback]);

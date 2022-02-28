@@ -12,7 +12,7 @@ const AddTodo: React.FC<{color: string|null}> = (props) => {
 
   const userId = useAppSelector(state=> state.user.user.userId);
   const userNumber = useAppSelector(state=> state.user.user.commenter.id);
-  const textInputRef = useRef<HTMLInputElement>(null);
+  const textInputRef = useRef<HTMLTextAreaElement>(null);
   const dispatch : AppDispatch = useDispatch();
   const {mutate} = useSWRConfig();
   const color= props.color;
@@ -40,19 +40,19 @@ const AddTodo: React.FC<{color: string|null}> = (props) => {
         <div className={styles.add_todo}>
           <label htmlFor="todo-text"/>
           {color === "yellow" &&
-          <textarea className={styles.input_yellow} type="text" id="todo-text" ref={textInputRef} />
+          <textarea className={styles.input_yellow}  id="todo-text" ref={textInputRef} />
           }
           {color === "orange" &&
-          <textarea className={styles.input_orange} type="text" id="todo-text" ref={textInputRef} />
+          <textarea className={styles.input_orange}  id="todo-text" ref={textInputRef} />
           }
           {color === "purple" &&
-          <textarea className={styles.input_purple} type="text" id="todo-text" ref={textInputRef} />
+          <textarea className={styles.input_purple}  id="todo-text" ref={textInputRef} />
           }
           {color === "skyblue" &&
-          <textarea className={styles.input_skyblue} type="text" id="todo-text" ref={textInputRef} />
+          <textarea className={styles.input_skyblue}  id="todo-text" ref={textInputRef} />
           }
           {color === "green" &&
-          <textarea className={styles.input_green} type="text" id="todo-text" ref={textInputRef} />
+          <textarea className={styles.input_green}  id="todo-text" ref={textInputRef} />
           }
           {/*<input className={styles.input} type="text" id="todo-text" ref={textInputRef} />*/}
         </div>
