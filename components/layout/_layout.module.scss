@@ -1,21 +1,27 @@
 
 .layout {
   display: grid;
-  grid-template-columns: repeat(2, 130px auto);
-}
-
-.main_layout {
-  //border: 1px solid blue;
+  grid-template-columns: repeat(2, 200px auto);
 }
 
 //header.tsx
 $colors: #f5c16e #f59570 #af8ef5 #01ccf5 #dbe58a;
 
+.header {
+  height: 100%;
+
+}
 .add_button{
-  margin: 10px 0 0 48px;
+  margin: 10px 0 0 88px;
+}
+.logo{
+  margin-left: 49px;
+  cursor: pointer;
 }
 
 .add_color {
+  width: 100px;
+  margin: 10px 0 0 39px;
   & > button {
     width: 20px;
     height: 20px;
@@ -45,4 +51,8 @@ $colors: #f5c16e #f59570 #af8ef5 #01ccf5 #dbe58a;
     }
 
   }
+}
+
+.header_signs{
+  margin: 10px 0 0 51px;
 }

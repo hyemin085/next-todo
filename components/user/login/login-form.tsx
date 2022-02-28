@@ -18,16 +18,7 @@ const LoginForm: NextPage = () => {
   const [checkPassword, setCheckPassword] = useState("");
   const [signUp, setSignUp] = useState<boolean>(false);
 
- const user = useAppSelector(state => state.user.user.userId);
 
- useEffect(() => {
-     if(user){
-         router.push({
-             pathname:`/todo/[slug]`,
-             query: {slug: user}
-         })
-     }
- },[user])
 
   const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
@@ -58,7 +49,6 @@ const LoginForm: NextPage = () => {
 
   return (
     <>
-      <Image src={loginBackground} alt="loginBackground" />
       {signUp ? (
         <div className={styles.loginFormContainer}>
           <h1>회원가입</h1>
@@ -99,10 +89,10 @@ const LoginForm: NextPage = () => {
                 />
               </label>
             </div>
-            <button>회원가입하기</button>
+            <button className="buttons">회원가입하기</button>
           </form>
 
-          <button
+          <button className="buttons"
             onClick={() => {
               setSignUp(false);
             }}
@@ -139,10 +129,11 @@ const LoginForm: NextPage = () => {
               </label>
             </div>
             <div>
-              <button>로그인하기</button>
+              <button className="buttons">로그인하기</button>
             </div>
           </form>
           <motion.button
+              className="buttons"
             variants={buttonVariants}
             whileHover="hover"
             onClick={() => {

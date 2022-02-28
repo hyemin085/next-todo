@@ -1,17 +1,25 @@
 .loginContainer {
-  width: 100%;
+  width: 150%;
   height: 100%;
 
 }
 
 
-
 .background {
   display: grid;
   height: 100vh;
-  grid-template-columns: repeat(2, 55% 45%);
+  grid-template-columns: repeat(2, 45% 55%);
   overflow: hidden;
 
+
+}
+.framerStyle{
+  margin-top: 150px;
+  & > a {
+    font-size: 150px;
+    margin-left: 170px;
+    font-family: 'ACCchildrenheartOTF-Regular';
+  }
 }
 .backgroundImage{
 

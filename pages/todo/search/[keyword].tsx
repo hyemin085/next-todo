@@ -3,6 +3,7 @@ import {useRouter} from "next/router";
 import useSWR, {useSWRConfig} from "swr";
 import TodoCard from "../../../components/todo/todo-card";
 import styles from "../../../components/todo/_todo.module.scss";
+import TodoSearch from "../../../components/todo/todo-search";
 
 
 
@@ -19,13 +20,20 @@ const SearchResult:NextPage = () => {
         `http://3.34.47.186:4000/search?contents=${keyword}`,
         fetcher
     );
-    console.log(data);
+    if(error){
+        return <div>데이터가 없어요</div>
+    }
+    const searchResult = data && data.search;
+    console.log(searchResult);
     return(
         <>
+            <h1>{keyword} Search</h1>
+            <TodoSearch/>
             <div className={styles.main_todo}>
-                {data && (data.search.map((list) => (
+
+                {searchResult ? (searchResult.map((list) => (
                     <TodoCard key={list.id} list={list}/>
-                    )))
+                ))) : (<div>노데이터</div>)
                 }
                 {/*{ && <div>데이터가 읍서요</div>}*/}
 

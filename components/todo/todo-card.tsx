@@ -51,24 +51,27 @@ const TodoCard: NextPage<listType> = (props) => {
 
   return (
     <>
-      <motion.div className={styles.todo_list}  whileHover={{ scale: 1.1, opacity: 1.0 }}>
+      <motion.div className={styles.todo_list}  whileHover={{ scale: 0.9, opacity: 1.0 }}>
         {props.list.color === "yellow" && (
           <div className={styles.todo_yellow}>
+            <label htmlFor="yellow"/>
             <input
               type="checkbox"
               checked={checking}
               onChange={checkingHandler}
+              id="yellow"
             />
+
             <div
               className={checking ? styles.todo_check : styles.todo_nonCheck}
             >
               {props.list.contents}
             </div>
-            <AiOutlineDelete
-              className={styles.delete}
-              onClick={deleteHandler}
-              size={25}
-            />
+            <div className={styles.delete}  onClick={deleteHandler}>
+              <AiOutlineDelete
+                  size={25}/>
+            </div>
+
           </div>
         )}
         {props.list.color === "orange" && (
@@ -83,7 +86,10 @@ const TodoCard: NextPage<listType> = (props) => {
             >
               {props.list.contents}
             </div>
-            <AiOutlineDelete onClick={deleteHandler} size={25} />
+            <div className={styles.delete}  onClick={deleteHandler}>
+              <AiOutlineDelete
+                  size={25}/>
+            </div>
           </div>
         )}
         {props.list.color === "purple" && (
@@ -98,7 +104,11 @@ const TodoCard: NextPage<listType> = (props) => {
             >
               {props.list.contents}
             </div>
-            <AiOutlineDelete onClick={deleteHandler} size={25} />
+            <div className={styles.delete}  onClick={deleteHandler}>
+              <AiOutlineDelete
+                  size={25}/>
+            </div>
+
           </div>
         )}
         {props.list.color === "skyblue" && (
@@ -113,7 +123,10 @@ const TodoCard: NextPage<listType> = (props) => {
             >
               {props.list.contents}
             </div>
-            <AiOutlineDelete onClick={deleteHandler} size={25} />
+            <div className={styles.delete}  onClick={deleteHandler}>
+              <AiOutlineDelete
+                  size={25}/>
+            </div>
           </div>
         )}
         {props.list.color === "green" && (
@@ -128,9 +141,9 @@ const TodoCard: NextPage<listType> = (props) => {
             >
               {props.list.contents}
             </div>
-            <AiOutlineDelete onClick={deleteHandler} size={25} />
           </div>
         )}
+
       </motion.div>
     </>
   );
