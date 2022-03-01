@@ -11,10 +11,7 @@ import TodoSearch from "../../components/todo/todo-search";
 export interface Todos {
   contents?: string;
   check?: boolean;
-  userId : {
-    userId: string| string[]
-    children: ReactChildren;
-  }
+  userId : string;
   commenter?: number;
 }
 
