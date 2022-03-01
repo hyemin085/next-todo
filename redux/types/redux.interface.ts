@@ -1,5 +1,5 @@
 export interface userTypes {
-    userId?: string,
+    userId?: string|string[]|any;
     password?: string;
 }
 

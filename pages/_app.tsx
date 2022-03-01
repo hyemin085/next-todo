@@ -7,6 +7,7 @@ import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
 import Layout from "../components/layout/layout-component";
 
+
 const persistor = persistStore(store);
 
 export default function App({ Component, pageProps }: AppProps) {

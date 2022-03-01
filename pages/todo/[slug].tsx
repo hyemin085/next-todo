@@ -1,25 +1,24 @@
 import { NextPage } from "next";
+import React from "react";
 import { useRouter } from "next/router";
-import { useEffect, useRef, useState } from "react";
+import {ReactChildren, ReactNode, useEffect, useRef, useState} from "react";
 import { useAppSelector } from "../../redux/hooks/hooks";
 import Todo from "../../components/todo";
 import styles from "./_todo.module.scss";
 import TodoModal from "../../components/modal/todo-modal";
 import TodoSearch from "../../components/todo/todo-search";
 
-import useSWR, { useSWRConfig } from "swr";
-import useSWRInfinite from "swr/infinite";
-import fetcher from "../../libs/fetch";
-import useOnScreen from "../../hooks/useOnScreen";
-
-interface Todos {
+export interface Todos {
   contents?: string;
   check?: boolean;
-  userId?: string;
+  userId : {
+    userId: string| string[]
+    children: ReactChildren;
+  }
   commenter?: number;
 }
 
-const TodoPage: NextPage = () => {
+const TodoPage: React.FC<Todos> = () => {
   const router = useRouter();
   const { slug } = router.query;
 
@@ -44,7 +43,7 @@ const TodoPage: NextPage = () => {
         {addModal.isTodoModal && <TodoModal items={addModal} />}
         <h1>Todo</h1>
         <TodoSearch />
-        <Todo userId={slug} />
+        <Todo key={userName} userId={userName} />
       </div>
     </>
   );

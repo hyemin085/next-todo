@@ -7,7 +7,6 @@ import {
 import reducer from "./rootReducer";
 import storage from "redux-persist/lib/storage/session";
 import { persistReducer } from "redux-persist";
-import { createWrapper } from "next-redux-wrapper";
 import thunk, { ThunkMiddleware } from "redux-thunk";
 import useSWR, { Middleware, SWRHook } from 'swr'
 
@@ -24,6 +23,7 @@ const swrMiddleware: Middleware = (useSWRNext: SWRHook) => (key, fetcher, config
 const middleware = (getDefaultMiddleware: any) =>
   getDefaultMiddleware().concat(logger);
 
+
 // const makeStore = () =>
 //     configureStore({
 //         reducer: persistedReducer,
@@ -37,6 +37,7 @@ const storeConfig : ConfigureStoreOptions<AppState, AnyAction,[ThunkMiddleware<A
   reducer: persistedReducer,
   middleware,
   swrMiddleware,
+
 };
 export const store = configureStore(storeConfig);
 
