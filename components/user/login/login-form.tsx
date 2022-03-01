@@ -1,14 +1,12 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import { NextPage } from "next";
-import Image from "next/image";
-import loginBackground from "../../../common/images/loginImage2.jpg";
 import styles from "./login-form.module.scss";
 import { MailIcon, KeyIcon } from "@heroicons/react/outline";
 import { motion } from "framer-motion";
 import { buttonVariants } from "../../styles/framer/button-style";
 import { logIn, signUpDB } from "../../../redux/user/user";
 import {useRouter} from "next/router";
-import {useAppDispatch, useAppSelector} from "../../../redux/hooks/hooks";
+import {useAppDispatch} from "../../../redux/hooks/hooks";
 
 const LoginForm: NextPage = () => {
   const dispatch = useAppDispatch();
